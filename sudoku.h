@@ -1,42 +1,30 @@
 #ifndef SUDOKU_H
 #define SUDOKU_H
 
-#include <QtCore>
+#include <iostream>
+#include <array>
 
-class Sudoku : public QObject
+#include "isudoku.h"
+
+class Sudoku : public ISudoku
 {
-    Q_OBJECT
-
 public:
     Sudoku();
-    Sudoku(const QByteArray &sudokuRaw);
-    ~Sudoku();
+    virtual ~Sudoku();
 
-    quint8 number() const;
-    void print() const;
+    void addLine(std::stringstream &stringstream);
 
-    bool solve();
-    bool check() const;
+    static short s_id;
 
-    QString toRaw() const;
-
-    SetChecked(bool correct){ m_checked = correct; }
-    GetChecked() const      { return m_checked; }
-
-signals:
-    void finished(quint16 result);
+    // ISudoku
+    short id() const;
+    // Left>Right, Top>Bottom
+    const std::array<std::array<int, 9>, 9>& getSudoku() const;
 
 private:
-    quint8 m_number;
-    quint8 m_sudoku[9][9];
-
-    bool checkRow(quint8 row) const;
-    bool checkCol(quint8 col) const;
-    bool checkBlk(quint8 blk) const;
-
-    bool m_checked;
-
-    Q_DISABLE_COPY(Sudoku)
+    short m_rowCount;
+    short m_id;
+    std::array<std::array<int, 9> , 9> m_sudoku;
 };
 
 #endif // SUDOKU_H
