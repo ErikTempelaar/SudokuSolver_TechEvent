@@ -142,7 +142,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <Text Include="ReadMe.txt" />
     <Text Include="sudoku570.txt" />
     <Text Include="sudokus.txt" />
   </ItemGroup>
