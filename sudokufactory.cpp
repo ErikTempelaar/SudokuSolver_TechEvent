@@ -31,8 +31,9 @@ std::vector<ISudoku *> SudokuFactory::createSudokus(std::string sudokuFilePath)
             ss.str(line);
             if (sudoku != nullptr)
                 sudoku->addLine(ss);
+#ifdef _DEBUG
             std::cout << ss.str() << std::endl;
-
+#endif // _DEBUG
             ++numberOfLines;
         }
         sudokuSource.close();

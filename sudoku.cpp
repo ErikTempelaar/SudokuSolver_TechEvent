@@ -10,7 +10,9 @@ Sudoku::Sudoku()
     , m_id      (s_id)
 {
     ++s_id;
+#ifdef _DEBUG
     std::cout << " Created Sudoku "  << m_id << "." << std::endl;
+#endif
 }
 
 Sudoku::~Sudoku()
