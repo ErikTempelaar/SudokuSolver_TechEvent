@@ -11,7 +11,7 @@ bool isSudokuValid(const std::array<std::array<int, 9>, 9>& sudoku);
 
 int main(int argc, char *argv[])
 {
-    const std::vector<ISudoku*> list = SudokuFactory::createSudokus("sudokus.txt");
+    const std::vector<ISudoku*> list = SudokuFactory::createSudokus("sudoku570Faults.txt");
     
     std::cout << "Checking puzzles..." << std::endl;
 
@@ -42,4 +42,5 @@ int main(int argc, char *argv[])
 bool isSudokuValid(const std::array<std::array<int, 9>, 9>& sudoku)
 {
     /* Insert code here */
+    return true;
 }
