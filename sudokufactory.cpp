@@ -18,7 +18,7 @@ std::vector<ISudoku *> SudokuFactory::createSudokus(std::string sudokuFilePath)
     {
         std::string line;
         int numberOfLines = 0;
-        Sudoku* sudoku;
+        Sudoku* sudoku = nullptr;
         while (getline (sudokuSource, line))
         {
             if (numberOfLines % 10 == 0)
@@ -29,7 +29,8 @@ std::vector<ISudoku *> SudokuFactory::createSudokus(std::string sudokuFilePath)
 
             std::stringstream ss;
             ss.str(line);
-            sudoku->addLine(ss);
+            if (sudoku != nullptr)
+                sudoku->addLine(ss);
             std::cout << ss.str() << std::endl;
 
             ++numberOfLines;
