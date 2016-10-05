@@ -37,4 +37,6 @@ std::vector<ISudoku *> SudokuFactory::createSudokus(std::string sudokuFilePath)
         }
         sudokuSource.close();
     }
+
+    return listSudokus;
 }
